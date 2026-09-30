@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotika - Ekstrakurikuler & Les Robotik</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      color: #1a1e2b;
+      background: #ffffff;
+    }
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #eef0f4;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      margin: 0 auto;
+      padding: 20px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      color: #3b5bdb;
+    }
+    .nav-link {
+      list-style: none;
+      display: flex;
+      gap: 32px;
+    }
+    .nav-link a {
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+      color: #2d3348;
+      transition: color 0.2s;
+    }
+    .nav-link a:hover {
+      color: #687bc7;
+    }
+    .hero {
+      background: #102c88;
+      color: #ffffff;
+      text-align: center;
+      padding: 150px 24px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 12px 24px;
+      border: 2px solid #4c6ef5;
+      border-radius: 50px;
+      color: #51ff88;
+      font-weight: 600;
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+    }
+    .hero h1 {
+      font-size: 100px;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .hero h1 span {
+      color: #fafbfd;
+    }
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 40px;
+      font-size: 22px;
+      line-height: 1.7;
+      color: #e4e6ea;
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 20px 36px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn:hover {
+      transform: translateY(-5px);
+    }
+    .btn-primary {
+      background: ;
+      color: #ffffff;
+      border: 1.5px solid #4a5068;
+    }
+    .btn-primary:hover {
+        border-color: #ffffff;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #fbfcfb;
+      border: 1.5px solid #4a5068;
+    }
+    .btn-outline:hover {
+      border-color: #ffffff;
+    }
+    .features {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 25px;
+      text-align: center;
+    }
+    .section-label {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #3b5bdb;
+      margin-bottom: 14px;
+    }
+    .features h2 {
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .section-desc {
+      max-width: 700px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: #6b7280;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .card {
+      background: #e4ebfe;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 48px 28px;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #7c9cf5;
+      box-shadow: 0 20px 40px rgba(60, 80, 160, 0.12);
+    }
+    .card h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .card p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #6b7280;
+    }
+    .programs {
+      background: #f7f8fb;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .programs-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .programs h2 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .programs .section-desc {
+      margin-bottom: 50px;
+    }
+    .program-cards {
+      display: grid;
+      gap: 40px;
+      align-items: center;
+      text-align: left;
+    }
+    .program-card {
+      background: #23ff47;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: 0 10px 30px rgba(60, 80, 160, 0.06);
+    }
+    .level {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #3b5bdb;
+      margin-bottom: 12px;
+    }
+    .program-card h3 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .program-desc {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #6b7280;
+      margin-bottom: 28px;
+    }
+    .materi {
+      background: #ddff00;
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+    }
+    .materi strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .materi ul {
+      padding-left: 20px;
+      color: #6b7280;
+      font-size: 17px;
+    }
+    .program-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 28px;
+    }
+    .program-footer small {
+      display: block;
+      color: #9ca3af;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+    .program-footer b {
+      font-size: 18px;
+    }
+    .price {
+      font-size: 30px;
+      font-weight: 800;
+      color: #3b5bdb;
+    }
+    .btn-program {
+      display: block;
+      text-align: center;
+      padding: 18px;
+      border: 1.5px solid #4263eb;
+      border-radius: 10px;
+      color: #3b5bdb;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      background: #ffffff;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-program:hover {
+      background: #de282b;
+      color: #ffffff;
+}
+    .center {
+        text-align: center;
+        margin-left: 19%;
+        padding-bottom: 50px;
+        padding-top: 20px;
+    }
+    .pilih-center {
+        text-align: center;
+        margin-left: 18%;
+    }
+    footer {
+        margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a class="logo">ROBOTIKA</a>
+      <ul class="nav-link">
+        <li><a href="#program">Program</a></li>
+        <li><a href="#jadwal">Jadwal</a></li>
+        <li><a href="#fasilitas">Fasilitas</a></li>
+        <li><a href="#mentor">Mentor</a></li>
+        <li><a href="#pendaftaran">Pendaftaran</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <span class="badge">EKSTRAKURIKULER & LES ROBOTIK</span>
+    <h1>BELAJAR ROBOTIK<br><span>DARI NOL</span></h1>
+    <p>Bangun robot pertamamu, pelajari coding, dan kembangkan kreativitas melalui proyek nyata.</p>
+    <div class="hero-buttons">
+      <a href="#pendaftaran" class="btn btn-primary">Daftar Sekarang</a>
+      <a href="#program" class="btn btn-outline">Lihat Program</a>
+    </div>
+  </section>
+  <section class="features" id="program">
+    <div class="section-label">KEUNGGULAN</div>
+    <h2>Kenapa Belajar Robotik?</h2>
+    <div class="center">
+        <p class="section-desc">Belajar teknologi tidak hanya tentang teori, tetapi juga tentang membuat sesuatu secara langsung.</p>
+    </div>
+        <div class="cards">
+      <div class="card">
+        <h3>Kreativitas</h3>
+        <p>Melatih siswa menemukan solusi melalui proyek robotik.</p>
+      </div>
+      <div class="card">
+        <h3>Coding</h3>
+        <p>Mengenal logika pemrograman melalui praktik langsung.</p>
+      </div>
+      <div class="card">
+        <h3>Praktik</h3>
+        <p>Belajar menggunakan sensor, motor, dan berbagai komponen.</p>
+      </div>
+      <div class="card">
+        <h3>Project</h3>
+        <p>Setiap peserta membuat proyek sesuai dengan levelnya.</p>
+      </div>
+  </section>
+  <section class="programs">
+  <div class="programs-container">
+    <div class="section-label">PROGRAM BELAJAR</div>
+    <h2>Pilih Level Belajarmu</h2>
+    <div class="pilih-center">
+        <p class="section-desc">Program disusun berdasarkan tingkat kemampuan peserta.</p>
+    </div>
+
+    <div class="program-cards">
+
+      <div class="program-card">
+        <div class="level">BEGINNER</div>
+        <h3>Robotik Dasar</h3>
+        <p class="program-desc">Cocok untuk siswa yang baru mengenal dunia robotik.</p>
+        <div class="materi">
+          <strong>Materi:</strong>
+          <ul>
+            <li>Pengenalan robot</li>
+            <li>Arduino / Microcontroller</li>
+            <li>LED</li>
+            <li>Button</li>
+            <li>Servo</li>
+            <li>Sensor dasar</li>
+          </ul>
+        </div>
+        <div class="program-footer">
+          <div>
+            <small>Durasi</small>
+            <b>4 Pertemuan</b>
+          </div>
+          <div class="price">Rp150.000</div>
+        </div>
+        <a href="#pendaftaran" class="btn-program">Pilih Program</a>
+      </div>
+
+      <div class="program-card featured">
+        <div class="level">INTERMEDIATE</div>
+        <h3>Smart Robot</h3>
+        <p class="program-desc">Untuk siswa yang sudah memahami dasar pemrograman dan elektronika.</p>
+        <div class="materi">
+          <strong>Materi:</strong>
+          <ul>
+            <li>Ultrasonic Sensor</li>
+            <li>Servo</li>
+            <li>Motor</li>
+            <li>Sensor cahaya</li>
+            <li>Pemrograman kondisi</li>
+            <li>Mini Project Robot</li>
+          </ul>
+        </div>
+        <div class="program-footer">
+          <div>
+            <small>Durasi</small>
+            <b>6 Pertemuan</b>
+          </div>
+          <div class="price">Rp200.000</div>
+        </div>
+        <a href="#pendaftaran" class="btn-program">Pilih Program</a>
+      </div>
+
+      <div class="program-card">
+        <div class="level">ADVANCED</div>
+        <h3>IoT &amp; Robotics</h3>
+        <p class="program-desc">Program lanjutan untuk membuat proyek robot dan IoT.</p>
+        <div class="materi">
+          <strong>Materi:</strong>
+          <ul>
+            <li>IoT dasar</li>
+            <li>Wi-Fi</li>
+            <li>Sensor</li>
+            <li>Monitoring data</li>
+            <li>Automation</li>
+            <li>Final Project</li>
+          </ul>
+        </div>
+        <div class="program-footer">
+          <div>
+            <small>Durasi</small>
+            <b>8 Pertemuan</b>
+          </div>
+          <div class="price">Rp250.000</div>
+        </div>
+        <a href="#pendaftaran" class="btn-program">Pilih Program</a>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+  <p>&copy; 2026 Powered by Alfathussholih</p>
+</footer>
+</section>
+
+</body>
+</html>
